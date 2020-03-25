@@ -1,4 +1,3 @@
-const API = require("../../routes/api")
 
 init();
 

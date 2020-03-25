@@ -11,8 +11,8 @@ app.use(express.json());
 app.use(express.static("public"));
 
 require("./routes/html")(app)
-require("./routes/api.js");
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/gitbuff-academy", {
+app.use(require("./routes/api-routes.js"));
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
     useNewUrlParser: true,
     useFindAndModify: false
 });

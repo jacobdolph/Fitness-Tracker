@@ -1,4 +1,4 @@
-const API = require("../../routes/api")
+
 async function initWorkout() {
   const lastWorkout = await API.getLastWorkout();
   console.log("Last workout:", lastWorkout);
@@ -8,8 +8,9 @@ async function initWorkout() {
       .setAttribute("href", `/exercise?id=${lastWorkout._id}`);
 
     const workoutSummary = {
+      name: lastWorkout.exercises[0].name,
       date: formatDate(lastWorkout.day),
-      totalDuration: lastWorkout.totalDuration,
+      totalDuration: lastWorkout.exercises[0].duration,
       numExercises: lastWorkout.exercises.length,
       ...tallyExercises(lastWorkout.exercises)
     };
@@ -49,6 +50,7 @@ function renderWorkoutSummary(summary) {
   const container = document.querySelector(".workout-stats");
 
   const workoutKeyMap = {
+    name: "Exercise",
     date: "Date",
     totalDuration: "Total Workout Duration",
     numExercises: "Exercises Performed",
