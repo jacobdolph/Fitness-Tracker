@@ -49,16 +49,17 @@ const workoutSchema = new Schema({
                 trim: true,
                 required: "cardio exercise name"
             },
-            duration: {
-                type: Number,
-                trim: true,
-                required: "enter the duration of your cardio exercise"
-            },
             distance: {
                 type: Number,
                 trim: true,
                 required: "enter the distance of your cardio exercise"
+            },
+            duration: {
+                type: Number,
+                trim: true,
+                required: "enter the duration of your cardio exercise"
             }
+
         }
     ]
 });

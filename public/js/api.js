@@ -18,6 +18,7 @@ const API = {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
     });
+    console.log(JSON.stringify(data) + " from the front end api const API in api.js")
 
     const json = await res.json();
 

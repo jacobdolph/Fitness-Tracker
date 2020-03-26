@@ -21,9 +21,17 @@ router.post("/api/workouts", ({ body }, res) => {
             res.status(400).json(err)
         });
 });
-router.put("/api/workouts/:id", ({ params }, { body }, res) => {
-    Workout.update({ _id: mongojs.ObjectId(params.id) }, { $set: { body } })
+router.put("/api/workouts/:id", ({ params, body }, res) => {
+    console.log(params, body)
+    Workout.update(
+        {
+            _id: mongojs.ObjectId(params.id)
+        },
+        {
+            $set: { exercises: body }
+        })
         .then(dbWorkout => {
+            console.log(dbWorkout)
             res.json(dbWorkout);
         })
         .catch(err => {
