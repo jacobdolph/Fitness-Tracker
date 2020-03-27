@@ -23,15 +23,15 @@ router.post("/api/workouts", ({ body }, res) => {
 });
 router.put("/api/workouts/:id", ({ params, body }, res) => {
     console.log(params, body)
-    Workout.update(
+    Workout.collection.updateOne(
         {
             _id: mongojs.ObjectId(params.id)
         },
         {
-            $set: { exercises: body }
+            $push: { exercises: body }
         })
         .then(dbWorkout => {
-            console.log(dbWorkout)
+
             res.json(dbWorkout);
         })
         .catch(err => {

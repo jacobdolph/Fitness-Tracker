@@ -58,8 +58,10 @@ const workoutSchema = new Schema({
                 type: Number,
                 trim: true,
                 required: "enter the duration of your cardio exercise"
-            }
-
+            },
+        },
+        {
+            versionKey: false
         }
     ]
 });
