@@ -10,7 +10,7 @@ async function initWorkout() {
     const workoutSummary = {
       name: lastWorkout.exercises[0].name,
       date: formatDate(lastWorkout.day),
-      totalDuration: lastWorkout.exercises[0].duration,
+      totalDuration: lastWorkout.totalDuration,
       numExercises: lastWorkout.exercises.length,
       ...tallyExercises(lastWorkout.exercises)
     };

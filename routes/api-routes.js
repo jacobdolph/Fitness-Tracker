@@ -40,6 +40,7 @@ router.put("/api/workouts/:id", ({ params, body }, res) => {
 });
 router.get("/api/workouts/range", ({ body }, res) => {
     Workout.find({})
+        .limit(7)
         .then(dbWorkout => {
             res.json(dbWorkout);
         })
